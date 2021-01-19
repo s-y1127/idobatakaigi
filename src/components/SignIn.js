@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignIn() {
+export default function SignIn({ name, setName }) {
   const classes = useStyles();
 
   return (
@@ -58,6 +58,7 @@ export default function SignIn() {
             id="name"
             label="ニックネーム"
             name="name"
+            onChange={(e) => setName(e.target.value)}
             autoFocus
           />
           <Button
@@ -66,6 +67,7 @@ export default function SignIn() {
             variant="contained"
             color="primary"
             className={classes.submit}
+            disabled={name === ''}
           >
             はじめる
           </Button>
