@@ -17,7 +17,7 @@ export default () => {
   } else {
     return (
       <>
-        <Main />
+        <Main name={name} />
       </>
     );
   }
