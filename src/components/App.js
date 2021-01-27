@@ -4,7 +4,6 @@ import Main from './Main';
 import SignIn from './SignIn';
 import config from '../config.json';
 
-console.log({ config });
 export default () => {
   const [name, setName] = useState('');
 
