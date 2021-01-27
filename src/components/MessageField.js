@@ -17,7 +17,7 @@ const MessageField = ({ name, setText, text }) => {
         if (text === '') return;
 
         if (e.key === 'Enter') {
-          pushMessage({ name: 'test', text }); //確認するためにnameを仮設定
+          pushMessage({ name, text }); //確認するためにnameを仮設定
           setText('');
           e.preventDefault();
         }
