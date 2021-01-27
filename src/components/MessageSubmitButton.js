@@ -4,7 +4,7 @@ import SendIcon from '@material-ui/icons/Send';
 
 import { pushMessage } from '../firebase';
 
-const MessageSubmitButton = ({ name, setText, text }) => {
+const MessageSubmitButton = ({ inputEl, name, setText, text }) => {
   console.log({ name });
   return (
     <>
@@ -13,6 +13,7 @@ const MessageSubmitButton = ({ name, setText, text }) => {
         onClick={() => {
           pushMessage({ name, text });
           setText('');
+          inputEl.current.focus();
         }}
       >
         <SendIcon />
