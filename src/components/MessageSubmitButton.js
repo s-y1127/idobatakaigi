@@ -5,7 +5,6 @@ import SendIcon from '@material-ui/icons/Send';
 import { pushMessage } from '../firebase';
 
 const MessageSubmitButton = ({ inputEl, name, setText, text }) => {
-  console.log({ name });
   return (
     <>
       <IconButton
