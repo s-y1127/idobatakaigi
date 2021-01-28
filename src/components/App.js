@@ -6,6 +6,7 @@ import config from '../config.json';
 
 export default () => {
   const [name, setName] = useState('');
+  const [isSignIn, setIsSingIn] = useState(true);
 
   if (config.signInEnable && name === '') {
     return (
@@ -16,7 +17,7 @@ export default () => {
   } else {
     return (
       <>
-        <Main name={name} />
+        <Main name={name} isSignIn={isSignIn} setIsSignIn={setIsSingIn} />
       </>
     );
   }

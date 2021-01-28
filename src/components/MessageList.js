@@ -13,7 +13,7 @@ const useStyles = makeStyles({
   },
 });
 
-const MessageList = () => {
+const MessageList = ({ IsSignIn, setIsSignIn }) => {
   const [messages, setMessages] = useState([]);
   const classes = useStyles();
 
@@ -30,10 +30,22 @@ const MessageList = () => {
     });
   }, []);
 
+  const length = messages.length;
+
   return (
     <List className={classes.root}>
-      {messages.map(({ key, name, text, index }) => {
-        return <MessageItem key={key} name={name} text={text}></MessageItem>;
+      {messages.map(({ key, name, text }, index) => {
+        const isLastItem = length === index + 1;
+        return (
+          <MessageItem
+            key={key}
+            name={name}
+            text={text}
+            isLastItem={isLastItem}
+            IsSignIn={IsSignIn}
+            setIsSignIn={setIsSignIn}
+          />
+        );
       })}
     </List>
   );

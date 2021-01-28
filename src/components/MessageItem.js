@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import {
   Avatar,
@@ -10,23 +10,30 @@ import {
 
 import { gravatarPath } from '../gravatar';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: '100%',
-    maxWidth: '36ch',
-    backgroundColor: theme.palette.background.paper,
-  },
+const useStyles = makeStyles(() => ({
   inline: {
     display: 'inline',
   },
 }));
 
-const MessageItem = ({ name, text }) => {
+const MessageItem = ({ IsSignIn, setIsSignIn, isLastItem, name, text }) => {
+  const ref = useRef(null);
   const classes = useStyles();
   const avatarPath = gravatarPath(name);
 
+  useEffect(() => {
+    if (isLastItem) {
+      if (IsSignIn) {
+        ref.current.scrollIntoView();
+        setIsSignIn(false);
+      } else {
+        ref.current.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [isLastItem]);
+
   return (
-    <ListItem>
+    <ListItem ref={ref}>
       <ListItemAvatar>
         <Avatar src={avatarPath} />
       </ListItemAvatar>

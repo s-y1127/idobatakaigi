@@ -14,7 +14,6 @@ const useStyles = makeStyles({
 });
 
 const MessageInputField = ({ name }) => {
-  name = 'test';
   const inputEl = useRef(null);
   const [text, setText] = useState('');
   const classes = useStyles();

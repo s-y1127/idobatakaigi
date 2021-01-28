@@ -12,12 +12,12 @@ const useStyles = makeStyles({
   },
 });
 
-const Main = ({ name }) => {
+const Main = ({ name, isSignIn, setIsSignIn }) => {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <MessageList />
+      <MessageList IsSignIn={isSignIn} setIsSignIn={setIsSignIn} />
       <MessageInputField name={name} />
     </div>
   );
